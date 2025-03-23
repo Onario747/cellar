@@ -117,75 +117,79 @@ const RightCol = () => {
       </div>
 
       {/* Training Statistics */}
-      <div className="bg-zinc-900 rounded-lg p-6">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-lg font-semibold text-white">
-            Training Statistics
-          </h2>
-          <button>
+      <div className="bg-black text-white p-6 rounded-lg">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-12">
+        <h2 className="text-xl font-medium">Statistics</h2>
+        <button className="text-white">
             <img
               className="w-6 h-6"
               src="/assets/svg/arrow-right.svg"
               alt="Arrow right"
             />
-          </button>
-        </div>
+        </button>
+      </div>
 
-        <div className="relative mb-6">
-          <div className="flex justify-center items-center">
-            <div className="relative w-[180px] h-[180px]">
-              <svg viewBox="0 0 100 100" className="w-full h-full">
-                <circle
-                  cx="50"
-                  cy="50"
-                  r="45"
-                  fill="transparent"
-                  stroke="#333"
-                  strokeWidth="10"
-                />
-                <circle
-                  cx="50"
-                  cy="50"
-                  r="45"
-                  fill="transparent"
-                  stroke="url(#gradient)"
-                  strokeWidth="10"
-                  strokeDasharray="282.7"
-                  strokeDashoffset="127.2"
-                  transform="rotate(-90 50 50)"
-                />
-                <defs>
-                  <linearGradient
-                    id="gradient"
-                    x1="0%"
-                    y1="0%"
-                    x2="0%"
-                    y2="100%"
-                  >
-                    <stop offset="0%" stopColor="#FF4500" />
-                    <stop offset="100%" stopColor="#FF8C00" />
-                  </linearGradient>
-                </defs>
-              </svg>
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <span className="text-3xl font-bold text-white">55%</span>
-              </div>
+      {/* Progress Circle and Label */}
+      <div className="mb-12">
+        <div className="flex justify-center mb-4">
+          <div className="relative">
+            <svg viewBox="0 0 100 100" className="w-[140px] h-[140px]">
+              <circle cx="50" cy="50" r="45" fill="transparent" stroke="#222" strokeWidth="10" />
+              <circle
+                cx="50"
+                cy="50"
+                r="45"
+                fill="transparent"
+                stroke="url(#gradient)"
+                strokeWidth="10"
+                strokeDasharray="282.7"
+                strokeDashoffset="127.2"
+                transform="rotate(-90 50 50)"
+              />
+              <defs>
+                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#FF3300" />
+                  <stop offset="100%" stopColor="#FF8C00" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-3xl font-bold text-[#FF6B00]">55%</span>
             </div>
           </div>
-          <div className="text-center mt-2">
-            <p className="text-sm text-white">The agile Learner</p>
-          </div>
         </div>
+        <div className="text-right">
+          <p className="text-sm text-white/80">The agile Learner</p>
+        </div>
+      </div>
 
+      {/* Progress Bar */}
+      <div className="mb-12">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-[100px] h-2 bg-blue-500 rounded-full"></div>
-            <span className="text-sm text-white">2/10 Books read</span>
+          <div className="flex items-center gap-3">
+            <div className="w-[82px] h-2 bg-blue-600 rounded-full"></div>
+            <span className="text-sm text-white/80">2 / 10 Books read</span>
           </div>
-          <a href="#" className="text-sm text-gray-400">
+          <a href="#" className="text-sm text-white/60">
             View all
           </a>
         </div>
+      </div>
+
+      {/* Bottom Stats */}
+      <div className="grid grid-cols-3 text-xs text-white/60">
+        <div>
+          <p>Total Books Read</p>
+        </div>
+        <div className="text-center">
+          <p>Favorite Genre</p>
+          <p className="text-white mt-1">Training</p>
+        </div>
+        <div className="text-right">
+          <p>2 / 59 Books</p>
+        </div>
+      </div>
       </div>
       <div className="h-6"></div>
     </div>

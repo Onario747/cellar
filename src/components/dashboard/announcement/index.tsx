@@ -1,11 +1,17 @@
 import React, { useState } from "react";
+import MobileComments from "./comments";
 
 const Announcement = () => {
   const [showComments, setShowComments] = useState(false);
+  const [showMobileComments, setShowMobileComments] = useState(false);
 
   const toggleComments = () => {
     setShowComments(!showComments);
   };
+
+  const toggleMobileComments = () => {
+    setShowMobileComments(!showMobileComments)
+  }
 
   const comments = [
     {
@@ -56,6 +62,9 @@ const Announcement = () => {
 
   return (
     <div className={`padding-x w-full col-span-2 relative`}>
+    
+{showMobileComments &&  <MobileComments onClose={() => setShowMobileComments(!showMobileComments)} />
+}    
       <div className="flex w-full">
         <div
           className={`h-[450px] mt-[50px] border-[1.5px] border-white/5 rounded-[10px] bg-[#131313] flex-1 ${
@@ -70,10 +79,15 @@ const Announcement = () => {
               </h2>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="items-center gap-3 hidden lg:flex ">
               <img src="/assets/svg/people.svg" />
               <span className="font-public text-[14px] text-white/50">
                 25 Views
+              </span>
+            </div><div className="items-center gap-3 ml-auto mr-0 flex lg:hidden ">
+              <img src="/assets/svg/people.svg" />
+              <span className="font-public text-[14px] text-white/50">
+                Full screen
               </span>
             </div>
           </div>
@@ -126,8 +140,8 @@ const Announcement = () => {
               </div>
             </div>
           </div>
-          <div className="flex items-center justify-between mt-4">
-            <div className="max-w-[497px] w-full flex flex-col gap-2">
+          <div className="lg:flex flex-col lg:justify-between justify-center mt-4">
+            <div className="max-w-[497px] w-full flex flex-col lg:gap-2 gap-3">
               <h1 className="text-white font-public text-[20px] font-semibold">
                 Step-by-Step Guide on How to Access our full Website Features
                 for Free!
@@ -148,8 +162,8 @@ const Announcement = () => {
                 </div>
               </div>
             </div>
-            <div className="flex items-center gap-5">
-              <div className="flex items-center gap-2 cursor-pointer">
+            <div className="flex mt-2 gap-5">
+              <div className="flex gap-2 cursor-pointer">
                 <img
                   src="/assets/svg/like.svg"
                   alt="Like"
@@ -162,7 +176,7 @@ const Announcement = () => {
                 )}
               </div>
               <div
-                className="flex items-center gap-2 cursor-pointer"
+                className="items-center gap-2 hidden lg:flex cursor-pointer"
                 onClick={toggleComments}
               >
                 <img
@@ -173,6 +187,21 @@ const Announcement = () => {
                 {!showComments && (
                   <span className="font-public text-[14px] text-white/50">
                     10 Comments
+                  </span>
+                )}
+              </div>
+              <div
+                className="items-center gap-2 lg:hidden flex cursor-pointer"
+                onClick={toggleMobileComments}
+              >
+                <img
+                  src="/assets/svg/comment.svg"
+                  alt="Comment"
+                  className="w-5 h-5"
+                />
+                {!showComments && (
+                  <span className="font-public text-[14px] text-white/50">
+                    12 Comments
                   </span>
                 )}
               </div>
