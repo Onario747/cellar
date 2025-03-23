@@ -62,9 +62,11 @@ const Announcement = () => {
 
   return (
     <div className={`padding-x w-full col-span-2 relative`}>
-    
-{showMobileComments &&  <MobileComments onClose={() => setShowMobileComments(!showMobileComments)} />
-}    
+      {showMobileComments && (
+        <MobileComments
+          onClose={() => setShowMobileComments(!showMobileComments)}
+        />
+      )}
       <div className="flex w-full">
         <div
           className={`h-[450px] mt-[50px] border-[1.5px] border-white/5 rounded-[10px] bg-[#131313] flex-1 ${
@@ -84,7 +86,8 @@ const Announcement = () => {
               <span className="font-public text-[14px] text-white/50">
                 25 Views
               </span>
-            </div><div className="items-center gap-3 ml-auto mr-0 flex lg:hidden ">
+            </div>
+            <div className="items-center gap-3 ml-auto mr-0 flex lg:hidden ">
               <img src="/assets/svg/people.svg" />
               <span className="font-public text-[14px] text-white/50">
                 Full screen
@@ -140,7 +143,7 @@ const Announcement = () => {
               </div>
             </div>
           </div>
-          <div className="lg:flex flex-col lg:justify-between justify-center mt-4">
+          <div className="lg:flex flex-col lg:justify-between lg:flex-row justify-center mt-4">
             <div className="max-w-[497px] w-full flex flex-col lg:gap-2 gap-3">
               <h1 className="text-white font-public text-[20px] font-semibold">
                 Step-by-Step Guide on How to Access our full Website Features
@@ -163,7 +166,7 @@ const Announcement = () => {
               </div>
             </div>
             <div className="flex mt-2 gap-5">
-              <div className="flex gap-2 cursor-pointer">
+              <div className="items-center gap-2 hidden lg:flex cursor-pointer">
                 <img
                   src="/assets/svg/like.svg"
                   alt="Like"
@@ -325,12 +328,12 @@ const Announcement = () => {
             ))}
           </div>
 
-          <div className="absolute bottom-4 left-4 right-4 p-3 border border-white/10 rounded-full bg-[#131313]">
-            <div className="flex items-center gap-2">
+          <div className="p-3 mx-3 border border-white/10 rounded-full bg-[#131313]">
+            <div className=" w-full flex items-center justify-between gap-2">
               <input
                 type="text"
                 placeholder="Say Something..."
-                className="w-full bg-transparent text-white/80 text-sm focus:outline-none"
+                className=" bg-transparent text-white/80 text-sm focus:outline-none"
               />
               <button className="text-white/50 hover:text-white">
                 <svg
